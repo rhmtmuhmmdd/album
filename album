@@ -49,7 +49,7 @@
 
   <h1>Galeri Musik & Foto</h1>
 
-  <button id="play">Putar Musik</button>
+  <button id="play">Buka Album</button>
 
   <!-- Foto dengan keterangan -->
   <div class="foto-container">
@@ -67,7 +67,7 @@
     <div class="caption">Keterangan Foto 3</div>
   </div>
 
-  <audio id="music" src="musiksad01.mp3" loop></audio>
+  <audio id="music" src="musiksad02.mp3" loop></audio>
 
   <script>
     const btn = document.getElementById('play');
