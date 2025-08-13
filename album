@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galeri Musik & Foto</title>
+  <style>
+    body {
+      background: #fef6e4; /* warna soft cream */
+      color: #111;
+      font-family: Arial, sans-serif;
+      margin:0;
+      padding:20px;
+      line-height:1.6;
+      text-align:center;
+    }
+    h1 {
+      font-size:36px;
+      margin-bottom:20px;
+    }
+    #play {
+      display:block;
+      margin:0 auto 30px auto;
+      padding:15px 30px;
+      font-size:20px;
+      background:#111;
+      color:#fff;
+      border:none;
+      border-radius:10px;
+      cursor:pointer;
+    }
+    #play:hover { background:#333; }
+    .foto-container {
+      margin-bottom:30px;
+    }
+    .foto-container img {
+      max-width:100%;
+      height:auto;
+      border-radius:10px;
+    }
+    .caption {
+      font-style:italic;
+      margin-top:8px;
+      color:#555;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Galeri Musik & Foto</h1>
+
+  <button id="play">Putar Musik</button>
+
+  <!-- Foto dengan keterangan -->
+  <div class="foto-container">
+    <img src="foto1.jpg" alt="Foto 1">
+    <div class="caption">Keterangan Foto 1</div>
+  </div>
+
+  <div class="foto-container">
+    <img src="foto2.jpg" alt="Foto 2">
+    <div class="caption">Keterangan Foto 2</div>
+  </div>
+
+  <div class="foto-container">
+    <img src="foto3.jpg" alt="Foto 3">
+    <div class="caption">Keterangan Foto 3</div>
+  </div>
+
+  <audio id="music" src="musiksad01.mp3" loop></audio>
+
+  <script>
+    const btn = document.getElementById('play');
+    const audio = document.getElementById('music');
+
+    btn.onclick = async () => {
+      try {
+        await audio.play();
+        btn.style.display = 'none';
+      } catch(e) {
+        alert('Gagal memutar musik. Pastikan file musik ada di repository.');
+      }
+    }
+  </script>
+
+</body>
+</html>
