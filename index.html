@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kita Berdua</title>
+  <title>Album Musik & Foto</title>
   <style>
     body {
       background: #fef6e4; /* warna soft cream */
@@ -31,7 +31,9 @@
     }
     #play:hover { background:#333; }
     .foto-container {
+      text-align:center;
       margin-bottom:30px;
+      display:none; /* awalnya disembunyikan */
     }
     .foto-container img {
       max-width:100%;
@@ -47,24 +49,24 @@
 </head>
 <body>
 
-  <h1>Galeri Musik & Foto</h1>
+  <h1>Kita Berdua</h1></h1>
 
   <button id="play">Buka Album</button>
 
   <!-- Foto dengan keterangan -->
   <div class="foto-container">
     <img src="foto1.jpg" alt="Foto 1">
-    <div class="caption">Keterangan Foto 1</div>
+    <div class="caption"> Foto 1</div>
   </div>
 
   <div class="foto-container">
     <img src="foto2.jpg" alt="Foto 2">
-    <div class="caption">Keterangan Foto 2</div>
+    <div class="caption"> Foto 2</div>
   </div>
 
   <div class="foto-container">
     <img src="foto3.jpg" alt="Foto 3">
-    <div class="caption">Keterangan Foto 3</div>
+    <div class="caption"> Foto 3</div>
   </div>
 
   <audio id="music" src="musiksad02.mp3" loop></audio>
@@ -72,11 +74,13 @@
   <script>
     const btn = document.getElementById('play');
     const audio = document.getElementById('music');
+    const fotos = document.querySelectorAll('.foto-container');
 
     btn.onclick = async () => {
       try {
-        await audio.play();
-        btn.style.display = 'none';
+        await audio.play();           // putar musik
+        btn.style.display = 'none';   // sembunyikan tombol
+        fotos.forEach(f => f.style.display = 'block'); // tampilkan semua foto
       } catch(e) {
         alert('Gagal memutar musik. Pastikan file musik ada di repository.');
       }
